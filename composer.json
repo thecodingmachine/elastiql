@@ -1,0 +1,51 @@
+{
+    "name": "thecodingmachine/elastiql",
+    "description": "Create indices in ElasticSearch from GraphQL queries",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "David Négrier",
+            "email": "d.negrier@thecodingmachine.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "webonyx/graphql-php": "^0.13.4",
+        "beberlei/porpaginas": "^1.2",
+        "symfony/console": "^3 || ^4",
+        "webmozart/assert": "^1.4",
+        "elasticsearch/elasticsearch": "^7.0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.2.3",
+        "satooshi/php-coveralls": "^1.0",
+        "phpstan/phpstan": "^0.11",
+        "myclabs/php-enum": "^1.6.6",
+        "doctrine/coding-standard": "^6.0",
+        "phpstan/phpstan-webmozart-assert": "^0.11.2",
+        "phpstan/extension-installer": "^1.0",
+        "thecodingmachine/phpstan-strict-rules": "^0.11.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "TheCodingMachine\\ElastiQL\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TheCodingMachine\\ElastiQL\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phpstan": "phpstan analyse src -c phpstan.neon --level=7 --no-progress -vvv",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": ["@cs-check", "@phpstan", "phpunit"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.0.x-dev"
+        }
+    }
+}
